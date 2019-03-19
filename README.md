@@ -1,10 +1,13 @@
-# Clash-Merlin
+Welcome to the Clash-Merlin wiki!
 
 **教程分两部分：**
-1. Clash的安装；
-2. 透明代理的设置。
-> 完成第1步之后，已经可以通过在设备上设置 http/socks 代理来实现扶墙；
+I. Clash的安装；
+II. 透明代理的设置。
+> 完成第1步之后，已经可以通过在设备上设置 http/socks 代理来实现扶墙；  
 > 完成第2步后，实现透明代理，无需在设备上做任何操作。
+
+***
+
 # I. Clash的安装
 ## 1. 准备
 ps. 觉得写的不清楚不精彩的部分，可以参见另外教程（https://shrtm.nu/nGqM）
@@ -52,24 +55,22 @@ ssh工具：win上Putty/Xshell，Mac上如termius 等，
 `start-stop-daemon -K -p /tmp/clash.pid`
 ***
 
-
 # II. 透明代理设置
 懒得写了，看图片吧。
 ![](https://ws4.sinaimg.cn/large/006tKfTcgy1g186uhz5goj30tw0wuwnr.jpg)
+**按需复制粘贴**
 
-`start-stop-daemon -S -b -x /jffs/.koolshare/clash -m -p /tmp/clash.pid — -d /jffs/.koolshare/
-iptables -t nat -A PREROUTING -p tcp --dport 22 -j ACCEPT
-iptables -t nat -A PREROUTING -p tcp -j REDIRECT --to-ports 8887
-iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j DNAT --to-destination 192.168.50.1:55`
-
-
-`#!/bin/sh
-/jffs/scripts/clash-iptable.sh`
+    start-stop-daemon -S -b -x /jffs/.koolshare/clash -m -p /tmp/clash.pid — -d /jffs/.koolshare/
+    iptables -t nat -A PREROUTING -p tcp --dport 22 -j ACCEPT
+    iptables -t nat -A PREROUTING -p tcp -j REDIRECT --to-ports 8887
+    iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j DNAT --to-destination 192.168.50.1:55
 
 
-`chmod +x /jffs/scripts/clash-iptable.sh`
+    #!/bin/sh
+    /jffs/scripts/clash-iptable.sh
 
-`chmod +x /jffs/scripts/firewall-start`
+    chmod +x /jffs/scripts/clash-iptable.sh
+    chmod +x /jffs/scripts/firewall-start
 
 ***
 其它参考教程：
