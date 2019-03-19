@@ -1,5 +1,4 @@
 # Clash-Merlin
-Welcome to the Clash-Merlin wiki!
 
 **教程分两部分：**
 1. Clash的安装；
@@ -58,13 +57,10 @@ ssh工具：win上Putty/Xshell，Mac上如termius 等，
 懒得写了，看图片吧。
 ![](https://ws4.sinaimg.cn/large/006tKfTcgy1g186uhz5goj30tw0wuwnr.jpg)
 
-`start-stop-daemon -S -b -x /jffs/.koolshare/clash -m -p /tmp/clash.pid — -d /jffs/.koolshare/`
-
-`iptables -t nat -A PREROUTING -p tcp --dport 22 -j ACCEPT`
-
-`iptables -t nat -A PREROUTING -p tcp -j REDIRECT --to-ports 8887`
-
-`iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j DNAT --to-destination 192.168.50.1:55`
+`start-stop-daemon -S -b -x /jffs/.koolshare/clash -m -p /tmp/clash.pid — -d /jffs/.koolshare/
+iptables -t nat -A PREROUTING -p tcp --dport 22 -j ACCEPT
+iptables -t nat -A PREROUTING -p tcp -j REDIRECT --to-ports 8887
+iptables -t nat -A PREROUTING -p udp -m udp --dport 53 -j DNAT --to-destination 192.168.50.1:55`
 
 
 `#!/bin/sh
